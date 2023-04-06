@@ -13,7 +13,8 @@ interface Props{
 export default function LinkCard({Fieldname,Fieldurl,Fieldsvg}:Props)  {
  
   const copyToClipboard = async () => {
-    await Clipboard.setStringAsync(Fieldurl);
+   const res= await Clipboard.setStringAsync(Fieldurl);
+   
   };
   return (
     <TouchableOpacity style={styles.container} onPress={copyToClipboard}>

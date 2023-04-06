@@ -1,6 +1,5 @@
-
 export interface Links {
-   name:string,
-   url:string,
-   image:string
+    name: string
+    url: string
+    image: string
 }

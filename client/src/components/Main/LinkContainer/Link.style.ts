@@ -4,7 +4,9 @@ import { COLORS, SHADOWS, SIZES } from '../../../constants/theme'
 export const styles = StyleSheet.create({
     container: {
         width: 300,
-        marginTop: SIZES.medium,
+        marginVertical: SIZES.medium,
+        marginHorizontal:SIZES.xxLarge,
+
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -22,7 +24,8 @@ export const styles = StyleSheet.create({
         padding: SIZES.xSmall,
     },
     linkContainer: {
-        width: '100%',
+       
         marginTop: SIZES.medium,
     },
+   
 })

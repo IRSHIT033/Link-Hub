@@ -1,18 +1,24 @@
 import React from 'react';
-import {  SafeAreaView, StatusBar, StyleSheet,  View } from 'react-native';
+import { StatusBar, StyleSheet,  View } from 'react-native';
 import { COLORS } from './src/constants/theme';
 import Main from './src/components/Main';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App=()=> {
   return (
     <>
+    <GestureHandlerRootView style={{flex: 1}}>
     <StatusBar backgroundColor={COLORS.primary} />
-    <SafeAreaView style={styles.container}>
-    
+    <View style={styles.container}>
+  
     <View >
-    <Main/> 
+           <Main/> 
+        </View>
+   
+       
+        
     </View>
-    </SafeAreaView>
+    </GestureHandlerRootView>
     </>
   );
 }
@@ -22,7 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primary,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 

@@ -1,20 +1,16 @@
 import React from 'react'
-import { FlatList, ScrollView, View } from 'react-native'
+import { FlatList,View } from 'react-native'
 import FacebookSvgComponent from '../../../assets/svgComponent/FacebookSvg'
 import LinkCard from './LinkCard'
 import { styles } from './Link.style'
 import GitHubSvg from '../../../assets/svgComponent/GitHubSvg'
 import LinkedInSvg from '../../../assets/svgComponent/LinkedInSvg'
 import TwitterSvg from '../../../assets/svgComponent/TwitterSvg'
+import { Links } from '../../../util/Types/CustomTypes'
 
-type links = {
-    id: string
-    Fieldname: string
-    Fieldurl: string
-    Fieldsvg: JSX.Element
-}
 
-const Links: links[] = [
+
+const linksDetails: Links[] = [
     {
         id: '1',
         Fieldname: 'Facebook',
@@ -39,13 +35,14 @@ const Links: links[] = [
         Fieldurl: 'https://twitter.com/IrshitMukherjee',
         Fieldsvg: <TwitterSvg />,
     },
+   
 ]
 
 const LinkContainer = () => {
     return (
         <View style={styles.linkContainer}>
             <FlatList
-                data={Links}
+                data={linksDetails}
                 renderItem={({ item }) => (
                     <LinkCard
                         Fieldname={item.Fieldname}

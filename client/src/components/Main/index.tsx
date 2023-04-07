@@ -4,9 +4,10 @@ import LinkContainer from './LinkContainer/LinkContainer'
 
 const Main = () => {
     return (
-        <View>
+      <View>
             <LinkContainer />
-        </View>
+            </View>
+       
     )
 }
 

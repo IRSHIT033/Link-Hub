@@ -23,12 +23,12 @@ type sizes = {
 }
 
 const COLORS: colors = {
-    primary: '#002B5B',
-    secondary: '#2B4865',
-    tertiary: '#256D85',
+    primary: '#20262E',
+    secondary: '#002B5B',
+    tertiary:'#2B4865',
     light: '#8FE3CF',
     white: '#F3F4F8',
-    dark: '#20262E',
+    dark: '#256D85'
 }
 
 const FONTS: fonts = {

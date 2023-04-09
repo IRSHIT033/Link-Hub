@@ -4,7 +4,7 @@ import { COLORS } from '../../constants/theme'
 
 const LinkedInSvg = (props: SvgProps): JSX.Element => (
     <Svg
-        fill={COLORS.light}
+        fill={COLORS.secondary}
         xmlns="http://www.w3.org/2000/svg"
         width={50}
         height={50}

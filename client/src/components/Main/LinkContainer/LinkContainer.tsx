@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList,View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import FacebookSvgComponent from '../../../assets/svgComponent/FacebookSvg'
 import LinkCard from './LinkCard'
 import { styles } from './Link.style'
@@ -7,8 +7,6 @@ import GitHubSvg from '../../../assets/svgComponent/GitHubSvg'
 import LinkedInSvg from '../../../assets/svgComponent/LinkedInSvg'
 import TwitterSvg from '../../../assets/svgComponent/TwitterSvg'
 import { Links } from '../../../util/Types/CustomTypes'
-
-
 
 const linksDetails: Links[] = [
     {
@@ -35,7 +33,6 @@ const linksDetails: Links[] = [
         Fieldurl: 'https://twitter.com/IrshitMukherjee',
         Fieldsvg: <TwitterSvg />,
     },
-   
 ]
 
 const LinkContainer = () => {

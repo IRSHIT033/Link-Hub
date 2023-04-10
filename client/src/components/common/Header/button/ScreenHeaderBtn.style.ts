@@ -1,6 +1,6 @@
 import { ImageStyle, StyleSheet, ViewStyle } from 'react-native'
 
-import { COLORS, SIZES } from '../../../constants/theme'
+import { COLORS, SIZES } from '../../../../constants/theme'
 
 const styles = StyleSheet.create<any>({
     btnContainer: {
@@ -10,7 +10,6 @@ const styles = StyleSheet.create<any>({
         borderRadius: SIZES.small / 1.25,
         justifyContent: 'center',
         alignItems: 'center',
-        margin: SIZES.medium,
     },
     btnImg: (dimension: number): ImageStyle => ({
         width: dimension,

@@ -7,7 +7,7 @@ const LogoutSvg = (props: SvgProps) => (
         xmlSpace="preserve"
         width={40}
         height={40}
-        fill={COLORS.primary}
+        fill={COLORS.light}
         viewBox="0 0 489.9 489.9"
         {...props}
     >

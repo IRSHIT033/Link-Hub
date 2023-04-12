@@ -1,20 +1,48 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import ScreenHeaderBtn from '../../common/Header/button/ScreenHeaderBtn'
 import { styles } from './HeaderContainer.Style'
 import LogoutSvg from '../../../assets/svgComponent/LogoutSvg'
 import EditSvg from '../../../assets/svgComponent/EditSvg'
+import ModalPopup from '../../common/Header/Modal'
+
+
 
 const HeaderContainer = () => {
+    const [visible, setVisible] = useState<boolean>(false)
+  
+    const openModal = () => {
+        setVisible(true)
+    }
+
+    const closeModal = () => {
+        setVisible(false)
+    }
+
     return (
-        <View>
-            <View style={styles.container}>
+        <>
+            <View style={[styles.headerContainer]}>
+            
                 <ScreenHeaderBtn
                     iconUrl={{ uri: 'https://picsum.photos/40' }}
                     dimension={50}
+                    handlePress={openModal}
                 />
+                <ModalPopup  isVisible={visible} onClose={closeModal}>
+                    <View style={{ alignItems: 'center' }}>
+                        <ScreenHeaderBtn
+                            iconUrl={{ uri: 'https://picsum.photos/40' }}
+                            dimension={40}
+                        />
+                        <Text style={styles.profiletext}>Irshit mukherjee</Text>
+                        <View style={styles.profiletoolContainer}>
+                            <LogoutSvg />
+                            <EditSvg />
+                        </View>
+                    </View>
+                </ModalPopup>
             </View>
-        </View>
+        </>
     )
 }
 export default HeaderContainer

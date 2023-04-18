@@ -3,7 +3,6 @@ import { COLORS, SIZES } from '../../../constants/theme'
 
 export const styles = StyleSheet.create({
     headerContainer: {
-        
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -13,7 +12,7 @@ export const styles = StyleSheet.create({
         margin: SIZES.small,
     },
     profiletext: {
-        fontSize: SIZES.large,
+        fontSize: SIZES.medium,
         color: COLORS.light,
         paddingVertical: SIZES.medium,
     },

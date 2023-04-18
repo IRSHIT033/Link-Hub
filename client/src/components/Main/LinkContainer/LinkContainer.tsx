@@ -6,7 +6,7 @@ import { styles } from './Link.style'
 import GitHubSvg from '../../../assets/svgComponent/GitHubSvg'
 import LinkedInSvg from '../../../assets/svgComponent/LinkedInSvg'
 import TwitterSvg from '../../../assets/svgComponent/TwitterSvg'
-import { Links } from '../../../util/Types/CustomTypes'
+import type { Links } from '../../../../@types/CustomTypes'
 
 const linksDetails: Links[] = [
     {

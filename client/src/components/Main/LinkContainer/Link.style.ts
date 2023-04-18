@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         shadowColor: COLORS.dark,
     },
     Animatedcontainer: {
-        flexDirection:'row',
+        flexDirection: 'row',
         width: '100%',
         alignItems: 'center',
         padding: SIZES.medium,

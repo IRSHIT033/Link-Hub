@@ -11,7 +11,7 @@ interface props {
 
 const ModalPopup = ({ isVisible, children, onClose }: props) => {
     return (
-        <Modal  animationType="slide" transparent visible={isVisible}>
+        <Modal animationType="slide" transparent visible={isVisible}>
             <View style={styles.modalContainer}>
                 <Pressable onPress={onClose}>
                     <MaterialIcons
@@ -34,10 +34,9 @@ const styles = StyleSheet.create({
         margin: SIZES.medium,
         borderRadius: 18,
         position: 'absolute',
-        left:'15%',
+        left: '15%',
         ...SHADOWS.medium,
-        elevation:4
-        
+        elevation: 4,
     },
 })
 

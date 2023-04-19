@@ -21,9 +21,9 @@ const index = ():JSX.Element => {
   
     const user = userCredential.user;
   
-    setUser({email:user.email as string,name:user.displayName as string,imgUrl:user.photoURL as string})
+    setUser({uid:user.uid as string,email:user.email as string,name:user.displayName as string,imgUrl:user.photoURL as string})
     
-    router.push('/')
+    router.push('/edit')
     
   })
   .catch((error) => {
@@ -41,8 +41,8 @@ const index = ():JSX.Element => {
   
       const user = userCredential.user;
       console.log(user.email);
-      setUser({email:user.email as string,name:user.displayName as string,imgUrl:user.photoURL as string})
-      router.push('/')
+      setUser({uid:user.uid as string,email:user.email as string,name:user.displayName as string,imgUrl:user.photoURL as string})
+      router.push('/edit')
       
     })
     .catch((error) => {

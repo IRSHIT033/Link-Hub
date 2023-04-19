@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import { FirebaseContextType, User } from '../../@types/CustomTypes'
-import { auth } from '../../firebaseConfig'
+import { auth, db } from '../../firebaseConfig'
 import { useRouter } from 'expo-router'
+import { doc, getDoc } from 'firebase/firestore'
 
 const StateContext = React.createContext<FirebaseContextType | null>(null)
 
@@ -13,15 +14,37 @@ export const useStateContext = () => {
 
 export const Provider = ({ children }: any) => {
     const router = useRouter()
-    const [user, setUser] = useState<User>({ email: '', name: '', imgUrl: '' })
+    const [links,setLinks]=useState({facebook:'',github:'',twitter:'',linkedin:''})
+    const [user, setUser] = useState<User>({ uid:'',email: '', name: '', imgUrl: '' })
     const provider = new GoogleAuthProvider()
+
+    const getlinks=async()=>{
+        console.log(user.uid);
+        try{
+        const docRef = doc(db, "userlink", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            const link= docSnap.data()
+            console.log("Document data:",);
+             setLinks({facebook:link.facebook,github:link.github,twitter:link.twitter,linkedin:link.linkedin})
+          } else {
+            // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+             setLinks({facebook:'',github:'',twitter:'',linkedin:''})
+          } 
+        }catch(err){
+        console.log(err);
+        }
+
+    }
 
     useEffect(() => {
         if (user.email === '') {
             router.replace('/login')
         } else {
-            router.replace('/')
+            router.replace('/edit')
         }
+        getlinks()
     }, [user])
 
     const loginWithGoogle = () => {
@@ -32,7 +55,7 @@ export const Provider = ({ children }: any) => {
     }
 
     return (
-        <StateContext.Provider value={{ loginWithGoogle, user, setUser }}>
+        <StateContext.Provider value={{ loginWithGoogle, user, setUser,links,setLinks }}>
             {children}
         </StateContext.Provider>
     )

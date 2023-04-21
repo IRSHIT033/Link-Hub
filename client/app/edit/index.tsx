@@ -9,7 +9,7 @@ import TwitterSvg from '../../src/assets/svgComponent/TwitterSvg'
 import { useStateContext } from '../../src/context/AuthContext'
 import { FirebaseContextType } from '../../@types/CustomTypes'
 import { useRouter } from 'expo-router'
-import { collection, doc, setDoc, updateDoc } from 'firebase/firestore'
+import {  doc, setDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 
 
@@ -24,9 +24,6 @@ const Edit = () => {
     console.log(user.uid);
     
     const userref=doc(db,"userlink",user.uid)
-
-    // if(LinkContainer.facebook !== '' || LinkContainer.github!== '' || LinkContainer.linkedin!=='' || LinkContainer.twitter!=='' ){
-    
     try{
     await setDoc(userref,{
         facebook:LinkContainer.facebook,

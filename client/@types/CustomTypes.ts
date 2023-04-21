@@ -17,6 +17,7 @@ export type FirebaseContextType={
     setLinks:React.Dispatch<React.SetStateAction<userlink>>
     setUser:React.Dispatch<React.SetStateAction<User>>
     loginWithGoogle:()=>void
+    getlinks:() => Promise<void>
 }
 
 export interface  User{

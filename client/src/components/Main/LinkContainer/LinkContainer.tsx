@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FlatList, View } from 'react-native'
 import FacebookSvgComponent from '../../../assets/svgComponent/FacebookSvg'
 import LinkCard from './LinkCard'
@@ -6,36 +6,45 @@ import { styles } from './Link.style'
 import GitHubSvg from '../../../assets/svgComponent/GitHubSvg'
 import LinkedInSvg from '../../../assets/svgComponent/LinkedInSvg'
 import TwitterSvg from '../../../assets/svgComponent/TwitterSvg'
-import type { Links } from '../../../../@types/CustomTypes'
+import type { FirebaseContextType, Links } from '../../../../@types/CustomTypes'
+import { useStateContext } from '../../../context/AuthContext'
 
-const linksDetails: Links[] = [
-    {
-        id: '1',
-        Fieldname: 'Facebook',
-        Fieldurl: 'https://www.facebook.com/irshit.mukherjee.1/',
-        Fieldsvg: <FacebookSvgComponent />,
-    },
-    {
-        id: '2',
-        Fieldname: 'GitHub',
-        Fieldurl: 'https://github.com/IRSHIT033',
-        Fieldsvg: <GitHubSvg />,
-    },
-    {
-        id: '3',
-        Fieldname: 'LinkedIn',
-        Fieldurl: 'https://www.linkedin.com/in/irshit-mukherjee-693a99219/',
-        Fieldsvg: <LinkedInSvg />,
-    },
-    {
-        id: '4',
-        Fieldname: 'Twitter',
-        Fieldurl: 'https://twitter.com/IrshitMukherjee',
-        Fieldsvg: <TwitterSvg />,
-    },
-]
+
 
 const LinkContainer = () => {
+    const {getlinks,links,user}=useStateContext() as FirebaseContextType
+    
+    useEffect(()=>{
+    getlinks()
+    },[])
+
+    const linksDetails: Links[] = [
+        {
+            id: '1',
+            Fieldname: 'Facebook',
+            Fieldurl: links.facebook,
+            Fieldsvg: <FacebookSvgComponent />,
+        },
+        {
+            id: '2',
+            Fieldname: 'GitHub',
+            Fieldurl: links.github,
+            Fieldsvg: <GitHubSvg />,
+        },
+        {
+            id: '3',
+            Fieldname: 'LinkedIn',
+            Fieldurl: links.linkedin,
+            Fieldsvg: <LinkedInSvg />,
+        },
+        {
+            id: '4',
+            Fieldname: 'Twitter',
+            Fieldurl:links.twitter,
+            Fieldsvg: <TwitterSvg />,
+        },
+    ]
+
     return (
         <View style={styles.linkContainer}>
             <FlatList

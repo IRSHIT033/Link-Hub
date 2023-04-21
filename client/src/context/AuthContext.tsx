@@ -55,7 +55,7 @@ export const Provider = ({ children }: any) => {
     }
 
     return (
-        <StateContext.Provider value={{ loginWithGoogle, user, setUser,links,setLinks }}>
+        <StateContext.Provider value={{ loginWithGoogle, user, setUser, links, setLinks, getlinks }}>
             {children}
         </StateContext.Provider>
     )

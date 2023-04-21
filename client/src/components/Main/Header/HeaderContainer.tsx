@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text ,Pressable} from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import ScreenHeaderBtn from '../../common/Header/button/ScreenHeaderBtn'
 import { styles } from './HeaderContainer.Style'
 import LogoutSvg from '../../../assets/svgComponent/LogoutSvg'
@@ -12,11 +12,10 @@ import { auth } from '../../../../firebaseConfig'
 import { signOut } from 'firebase/auth'
 
 const HeaderContainer = () => {
-    const router=useRouter()
+    const router = useRouter()
     const [visible, setVisible] = useState<boolean>(false)
-    const {user}=useStateContext() as FirebaseContextType
+    const { user } = useStateContext() as FirebaseContextType
 
-      
     const openModal = () => {
         setVisible(true)
     }
@@ -25,22 +24,21 @@ const HeaderContainer = () => {
         setVisible(false)
     }
 
-    const Logouthandler=()=>{
-    
-   signOut(auth).then(() => {
-  // Sign-out successful.
-  console.log("successfully logged out");
-  
-  router.replace('/login')
-}).catch((err) => {
-  // An error happened.
-  console.log(err);
-  
-});
-       
+    const Logouthandler = () => {
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+                console.log('successfully logged out')
+
+                router.replace('/login')
+            })
+            .catch((err) => {
+                // An error happened.
+                console.log(err)
+            })
     }
 
-    const GotoEditPage=()=>{
+    const GotoEditPage = () => {
         router.replace('/edit')
     }
 
@@ -55,16 +53,20 @@ const HeaderContainer = () => {
                 <ModalPopup isVisible={visible} onClose={closeModal}>
                     <View style={{ alignItems: 'center' }}>
                         <ScreenHeaderBtn
-                            iconUrl={{ uri: user.imgUrl??'https://picsum.photos/40' }}
+                            iconUrl={{
+                                uri: user.imgUrl ?? 'https://picsum.photos/40',
+                            }}
                             dimension={40}
                         />
-                        <Text style={styles.profiletext}>{user.email.slice(0,15)}</Text>
+                        <Text style={styles.profiletext}>
+                            {user.email.slice(0, 15)}
+                        </Text>
                         <View style={styles.profiletoolContainer}>
                             <Pressable onPress={Logouthandler}>
-                            <LogoutSvg />
+                                <LogoutSvg />
                             </Pressable>
                             <Pressable onPress={GotoEditPage}>
-                            <EditSvg />
+                                <EditSvg />
                             </Pressable>
                         </View>
                     </View>

@@ -9,14 +9,12 @@ import TwitterSvg from '../../../assets/svgComponent/TwitterSvg'
 import type { FirebaseContextType, Links } from '../../../../@types/CustomTypes'
 import { useStateContext } from '../../../context/AuthContext'
 
-
-
 const LinkContainer = () => {
-    const {getlinks,links,user}=useStateContext() as FirebaseContextType
-    
-    useEffect(()=>{
-    getlinks()
-    },[])
+    const { getlinks, links, user } = useStateContext() as FirebaseContextType
+
+    useEffect(() => {
+        getlinks()
+    }, [])
 
     const linksDetails: Links[] = [
         {
@@ -40,7 +38,7 @@ const LinkContainer = () => {
         {
             id: '4',
             Fieldname: 'Twitter',
-            Fieldurl:links.twitter,
+            Fieldurl: links.twitter,
             Fieldsvg: <TwitterSvg />,
         },
     ]
